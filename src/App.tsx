@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GlobalAppContextProvider from "./contexts/GlobalAppContext";
+import { useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "Home/HomePage";
+import { Layout } from "components";
+import styled from "styled-components";
+import { UIConfig } from "configs";
 
-function App() {
+const UIAppBlock = styled.div`
+  height: 100%;
+  #wrapper {
+    position: relative;
+    min-height: 100%;
+    padding-top: ${UIConfig.layouts.header.height}px;
+    padding-bottom: ${UIConfig.layouts.footer.height}px;
+  }
+`;
+
+function App({ children }: React.PropsWithChildren) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalAppContextProvider>
+      <UIAppBlock>
+        <Layout.Header />
+        <div id="wrapper">
+          <div id="body-contents">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </div>
+          <Layout.Footer />
+        </div>
+      </UIAppBlock>
+    </GlobalAppContextProvider>
   );
 }
 
