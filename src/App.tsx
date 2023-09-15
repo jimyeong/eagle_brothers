@@ -24,9 +24,11 @@ function App({ children }: React.PropsWithChildren) {
         <Layout.Header />
         <div id="wrapper">
           <div id="body-contents">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-            </Routes>
+            <div className="container mx-auto">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+            </div>
           </div>
           <Layout.Footer />
         </div>
