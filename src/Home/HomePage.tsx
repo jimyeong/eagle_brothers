@@ -17,7 +17,7 @@ interface IHomePageContext {
 }
 const homeContext = createContext<IHomePageContext>({} as IHomePageContext);
 
-const useHomeContext = () => {
+export const useHomeContext = () => {
   const context = useContext(homeContext);
   if (!context) {
     throw new Error("homeContext should be used within homeContextProvider");
@@ -52,17 +52,13 @@ const HomePage = () => {
   const addTodoItem = (item: TodoItem) => {
     homeDispatch({ type: "TODO_ADD", payload: item });
   };
-  const { onReset, onChange, values } = useTextInput({
-    newTodoTitle: "",
-    newTodoName: "newTodo",
-  });
   const updateContext = () => {};
 
   return (
     <React.Fragment>
       <homeContext.Provider value={{ ...pageState, addTodoItem }}>
-        <h1 className="text-3xl font-bold">Todos</h1>{" "}
-        <AddItem taskId="aduwhdi" taskValue="hell worold" />
+        <h1 className="text-3xl font-bold">Todos</h1>
+        <AddItem />
       </homeContext.Provider>
     </React.Fragment>
   );
