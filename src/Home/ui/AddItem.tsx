@@ -7,7 +7,15 @@ import { Buttons } from "components";
 import useTextInput from "hooks/useTextInput";
 import { useHomeContext } from "Home/HomePage";
 
-const UIAddItemBlock = styled.div``;
+const UIAddItemBlock = styled.div`
+  .btn-submit {
+    background: #fbf13f;
+    width: 110px;
+    margin-left: 16px;
+    color: #0a1744;
+    font-weight: 500;
+  }
+`;
 
 interface IAddItem {}
 
@@ -44,18 +52,12 @@ export default function AddItem() {
           onChange={onChange}
           onKeyDown={onKeyPressEnter}
         />
-        <button
+        <Buttons.RippleButton
           onClick={onClickButton}
-          style={{
-            backgroundColor: "#4700cc",
-            color: "#fff",
-            width: "70px",
-            marginLeft: "20px",
-          }}
-          className="rounded-lg px-3 py-2"
+          className="rounded-lg px-3 py-2 btn-submit"
         >
           Add
-        </button>
+        </Buttons.RippleButton>
       </div>
     </UIAddItemBlock>
   );

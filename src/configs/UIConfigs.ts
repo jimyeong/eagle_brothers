@@ -1,11 +1,12 @@
 const UIConfig = {
   colour: {
-    primary: "#00c853",
+    primary: "#3f5efb",
     primaryBright: "#33d375",
-    primaryDark: "#008c3a",
-    secondary: "#ffea00",
+    primaryDark: "#3f5efb",
+    secondary: "#fb3f69",
     secondaryBright: "#ffee33",
-    secondaryDark: "#b2a300",
+    secondaryDark: "#b02c4a",
+    highlightColour1: "#fbf13f",
   },
   layouts: {
     footer: {

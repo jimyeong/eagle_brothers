@@ -27,7 +27,7 @@ export default function Nav() {
       <ul>
         {navList.map((item: TypeNavItem, i: number) => {
           return (
-            <li className="nav__item">
+            <li key={i} className="nav__item">
               <Link to={item.path} className="nav__link text-slate-950">
                 {item.name}
               </Link>
