@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, KeyboardEvent } from "react";
 import styled from "styled-components";
 import { Forms } from "components";
 import RectangleButton from "components/Buttons/RectangleButton/RectangleButton";
@@ -18,12 +18,20 @@ export default function AddItem() {
     nameKey: "newTodo",
   });
   const onClickButton = () => {
+    if (values.newTodo == "") return;
+
     homeContext.addTodoItem({
       done: false,
       active: false,
       title: values.newTodo,
     });
     onReset();
+  };
+  const onKeyPressEnter = (event: KeyboardEvent) => {
+    if (event.key == "Enter") {
+      event.preventDefault();
+      onClickButton();
+    }
   };
   return (
     <UIAddItemBlock>
@@ -34,10 +42,16 @@ export default function AddItem() {
           name={values.nameKey}
           value={values.newTodo}
           onChange={onChange}
+          onKeyDown={onKeyPressEnter}
         />
         <button
           onClick={onClickButton}
-          style={{ backgroundColor: "#4700cc", color: "#fff", width: "70px" }}
+          style={{
+            backgroundColor: "#4700cc",
+            color: "#fff",
+            width: "70px",
+            marginLeft: "20px",
+          }}
           className="rounded-lg px-3 py-2"
         >
           Add

@@ -12,7 +12,7 @@ const UIConfig = {
       height: 60,
     },
     header: {
-      height: 42,
+      height: 56,
     },
   },
 };

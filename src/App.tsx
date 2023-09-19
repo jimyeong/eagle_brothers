@@ -15,6 +15,16 @@ const UIAppBlock = styled.div`
     padding-top: ${UIConfig.layouts.header.height}px;
     padding-bottom: ${UIConfig.layouts.footer.height}px;
   }
+
+  #body-contents {
+    padding: 0 16px;
+    padding-top: 16px;
+    position: absolute;
+    width: calc(100% - 320px);
+    right: 0;
+  }
+  .container {
+  }
 `;
 
 function App({ children }: React.PropsWithChildren) {
