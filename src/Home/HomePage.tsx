@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import App from "../App";
 import { useGlobalAppContext } from "../contexts/GlobalAppContext";
 import useTextInput from "hooks/useTextInput";
-import AddItem from "./ui/AddItem";
-import TodoList from "./ui/TodoList";
+import AddItem from "Home/ui/AddItem";
+import TodoList from "Home/ui/TodoList";
+import { scripts, IScript } from "scripts";
+import ExperienceCard from "Home/ui/Cards/ExperienceCard";
+import RenderList from "components/Lists/RenderList";
 
 export type State = {
   todos: TodoItem[];
@@ -64,6 +67,16 @@ const HomePage = () => {
         <h1 className="text-3xl font-bold">Todos</h1>
         <AddItem />
         <TodoList todos={todos} />
+        <div className="experience_cards">
+          <ul>
+            <RenderList
+              list={scripts}
+              render={(item: IScript, key: number) => {
+                return <ExperienceCard key={key} story={item} />;
+              }}
+            />
+          </ul>
+        </div>
       </homeContext.Provider>
     </React.Fragment>
   );
