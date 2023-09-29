@@ -5,7 +5,7 @@ import useRipple from "hooks/useRipple";
 const UIRiffleButtonBlock = styled.button`
   padding: 16px;
   background-color: "#1e293b";
-  color: white;
+  color: inherit;
   border: none;
   border-radius: 8px;
   cursor: pointer;

@@ -4,10 +4,6 @@
 
 @layer components {
   .card {
-    background-color: theme("colors.white");
-    border-radius: theme("borderRadius.lg");
-    padding: theme("spacing.6");
-    box-shadow: theme("boxShadow.xl");
   }
 }
 
@@ -21,4 +17,9 @@ body,
 
 #root {
   background-color: #f0f0f0;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
 }

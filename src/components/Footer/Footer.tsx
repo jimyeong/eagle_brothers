@@ -8,6 +8,7 @@ const UIFooterBlock = styled.footer`
   right: 0;
   bottom: 0;
   height: ${UIConfig.layouts.footer.height}px;
+  background-color: transparent;
 `;
 export default function Footer({ children }: PropsWithChildren) {
   return <UIFooterBlock>this is footer</UIFooterBlock>;

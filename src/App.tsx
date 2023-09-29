@@ -6,6 +6,7 @@ import HomePage from "Home/HomePage";
 import { Layout } from "components";
 import styled from "styled-components";
 import { UIConfig } from "configs";
+import EnglishStudyPage from "EnglishStudy/EnglishStudyPage";
 
 const UIAppBlock = styled.div`
   height: 100%;
@@ -14,6 +15,7 @@ const UIAppBlock = styled.div`
     min-height: 100%;
     padding-top: ${UIConfig.layouts.header.height}px;
     padding-bottom: ${UIConfig.layouts.footer.height}px;
+    overflow: hidden;
   }
 
   #body-contents {
@@ -22,6 +24,8 @@ const UIAppBlock = styled.div`
     position: absolute;
     width: calc(100% - 320px);
     right: 0;
+    height: 100%;
+    overflow-y: scroll;
   }
   .container {
   }
@@ -37,6 +41,7 @@ function App({ children }: React.PropsWithChildren) {
             <div className="container mx-auto">
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/english" element={<EnglishStudyPage />} />
               </Routes>
             </div>
           </div>

@@ -6,9 +6,16 @@ import { useGlobalAppContext } from "../contexts/GlobalAppContext";
 import useTextInput from "hooks/useTextInput";
 import AddItem from "Home/ui/AddItem";
 import TodoList from "Home/ui/TodoList";
-import { scripts, IScript } from "scripts";
+
 import ExperienceCard from "Home/ui/Cards/ExperienceCard";
 import RenderList from "components/Lists/RenderList";
+import styled from "styled-components";
+
+const UIHomepageBlock = styled.div`
+  .card__list {
+    margin-left: -8px;
+  }
+`;
 
 export type State = {
   todos: TodoItem[];
@@ -62,23 +69,13 @@ const HomePage = () => {
   const updateContext = () => {};
 
   return (
-    <React.Fragment>
+    <UIHomepageBlock>
       <homeContext.Provider value={{ ...pageState, addTodoItem }}>
-        <h1 className="text-3xl font-bold">Todos</h1>
+        <h1 className="text-3xl font-bold">English Practise</h1>
         <AddItem />
         <TodoList todos={todos} />
-        <div className="experience_cards">
-          <ul>
-            <RenderList
-              list={scripts}
-              render={(item: IScript, key: number) => {
-                return <ExperienceCard key={key} story={item} />;
-              }}
-            />
-          </ul>
-        </div>
       </homeContext.Provider>
-    </React.Fragment>
+    </UIHomepageBlock>
   );
 };
 
