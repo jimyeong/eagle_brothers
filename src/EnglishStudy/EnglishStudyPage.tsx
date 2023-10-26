@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 import RenderList from "components/Lists/RenderList";
 import ExperienceCard from "Home/ui/Cards/ExperienceCard";
-import { scripts, IScript } from "scripts";
+import { scripts, IScript, memorising, ImemoScript } from "scripts";
 
 interface IEnglishStudyPage extends PropsWithChildren {}
 
@@ -17,6 +17,14 @@ export default function EnglishStudyPage({ children }: IEnglishStudyPage) {
             list={scripts}
             render={(item: IScript, key: number) => {
               return <ExperienceCard key={key} story={item} />;
+            }}
+          />
+        </ul>
+        <ul>
+          <RenderList
+            list={memorising}
+            render={(item: ImemoScript, key: number) => {
+              return <div key={key}>{item.sentence}</div>;
             }}
           />
         </ul>
